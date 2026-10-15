@@ -1,0 +1,48 @@
+/* Анимации и микроанимации */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Эффекты при наведении */
+.hover-scale {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Адаптивность под 390x844 */
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    .display-1 {
+        font-size: 4rem;
+    }
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .card-body {
+        padding: 1rem !important;
+    }
+    .btn {
+        font-size: 0.9rem;
+    }
+}

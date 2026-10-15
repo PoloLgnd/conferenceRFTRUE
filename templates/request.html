@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Новая заявка{% endblock %}
+
+{% block content %}
+<section class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow fade-in">
+            <div class="card-body p-4">
+                <h2 class="text-center mb-4"><i class="bi bi-file-earmark-plus text-success"></i> Подача заявки</h2>
+                <form method="POST" action="{{ url_for('create_request') }}">
+                    <div class="mb-3">
+                        <label for="room" class="form-label"><i class="bi bi-door-open"></i> Помещение</label>
+                        <select type="text" class="form-control" id="room" name="room" data-testid="req-room" placeholder="Введите название помещения" required>
+                            <option value="" disabled selected>Выберите помещение...</option>
+                            <option value="Аудитория 301">Аудитория 301</option>
+                            <option value="Коворкинг 'Старт'">Коворкинг 'Старт'</option>
+                            <option value="Кинозал 'Премьер'">Кинозал 'Премьер'</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="start_date" class="form-label"><i class="bi bi-calendar-event"></i> Желаемая дата начала</label>
+                        <input type="text" class="form-control" id="start_date" name="start_date" data-testid="req-date" placeholder="ДД.ММ.ГГГГ" pattern="\d{2}\.\d{2}\.\d{4}" title="Формат: ДД.ММ.ГГГГ" required>
+                        <div class="form-text">Обязательно в формате ДД.ММ.ГГГГ</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="payment" class="form-label"><i class="bi bi-credit-card"></i> Способ оплаты</label>
+                        <select class="form-select" id="payment" name="payment" data-testid="req-payment" required>
+                            <option value="" disabled selected>Выберите способ...</option>
+                            <option value="При очном посещении">При очном посещении</option>
+                            <option value="Перевод по СБП">Перевод по СБП</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 mt-3 hover-scale" data-testid="req-submit"><i class="bi bi-send"></i> Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
